@@ -1,5 +1,6 @@
 var pl = require("piglatin");
 var et = require("elementtree");
+var pd  = require('pretty-data').pd;
 
 var translate = function(data) {
     var xml = et.parse(data);
@@ -18,7 +19,9 @@ var translate = function(data) {
 
     var output = xml.write({'xml_declartion' : false});
 
-    return output;
+    var pretty = pd.xml(output);
+
+    return pretty;
 }
 
 module.exports = translate;

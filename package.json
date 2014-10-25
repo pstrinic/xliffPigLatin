@@ -3,7 +3,8 @@
     "version" : "0.0.1",
     "dependencies" : {
         "piglatin" : "0.1.2",
-        "elementtree" : "0.1.6"
+        "elementtree" : "0.1.6",
+        "pretty-data" : "0.40.0"
     },
    "description": "XLIFF file pig lating translation",
    "keywords": [ "XLIFF", "Pig Latin" ],
