@@ -1,5 +1,5 @@
 import fs from "fs";
-import translate from "xliffPigLatin";
+import translate from "./xliffPigLatin";
 
 const INPUT_FILE_ARG = 2;
 const OUTPUT_FILE_ARG = 3;
