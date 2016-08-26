@@ -1,24 +1,26 @@
-var fs = require("fs");
-var translate = require("./xliffPigLatin");
+import fs from "fs";
+import translate from "xliffPigLatin";
 
-var inputFile = process.argv[2];
-var outputFile = process.argv[3];
+const INPUT_FILE_ARG = 2;
+const OUTPUT_FILE_ARG = 3;
 
-fs.readFile(inputFile, 'utf8', function (err,data) {
-    if (err) {
-        return console.log(err);
+const inputFile = process.argv[INPUT_FILE_ARG];
+const outputFile = process.argv[OUTPUT_FILE_ARG];
+
+fs.readFile(inputFile, "utf8", (readError, data) => {
+    if(readError) {
+        return console.log(readError);
     }
     console.log("reading : ", inputFile);
 
-    var output = translate(data);
+    const output = translate(data);
 
-    fs.writeFile(outputFile, output, function(err) {
-        if(err) {
-            return console.log(err);
-        } else {
-            return console.log("saved to : ", outputFile);
+    fs.writeFile(outputFile, output, writeError => {
+        if(writeError) {
+            return console.log(writeError);
         }
+        return console.log("saved to : ", outputFile);
     });
-
+    return true;
 });
 
